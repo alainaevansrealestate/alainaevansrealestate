@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Alaina Evans Real Estate</title>
+  <title>Alaina Evans Real Estate | Hamilton, ON</title>
+  <meta name="description" content="Alaina Evans, licensed real estate broker with Coldwell Banker in Hamilton, ON. Helping buyers and sellers find their perfect home.">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -29,28 +30,14 @@
     }
     #pw-overlay .pw-tag { font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(245,240,235,0.4); }
     #pw-overlay h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.9rem; color: var(--cream); letter-spacing: 0.08em; font-weight: 300; }
-    #pw-input {
-      padding: 14px 20px; font-family: 'Jost', sans-serif; font-size: 1rem;
-      background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.18);
-      color: var(--cream); border-radius: 2px; outline: none;
-      width: 300px; text-align: center; letter-spacing: 0.08em;
-    }
+    #pw-input { padding: 14px 20px; font-family: 'Jost', sans-serif; font-size: 1rem; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.18); color: var(--cream); border-radius: 2px; outline: none; width: 300px; text-align: center; letter-spacing: 0.08em; }
     #pw-input::placeholder { color: rgba(255,255,255,0.25); }
-    #pw-btn {
-      padding: 12px 44px; background: var(--tan); border: none;
-      font-family: 'Jost', sans-serif; font-size: 0.72rem; letter-spacing: 0.2em;
-      text-transform: uppercase; color: var(--forest-dark); cursor: pointer;
-      border-radius: 2px; transition: background 0.2s;
-    }
+    #pw-btn { padding: 12px 44px; background: var(--tan); border: none; font-family: 'Jost', sans-serif; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--forest-dark); cursor: pointer; border-radius: 2px; transition: background 0.2s; }
     #pw-btn:hover { background: var(--cream); }
     #pw-error { font-size: 0.72rem; color: #E07070; letter-spacing: 0.1em; display: none; }
 
     /* NAV */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: var(--forest); display: flex; align-items: center;
-      justify-content: space-between; padding: 0 52px; height: 76px;
-    }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--forest); display: flex; align-items: center; justify-content: space-between; padding: 0 52px; height: 76px; }
     .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.12rem; color: var(--cream); letter-spacing: 0.14em; text-decoration: none; text-transform: uppercase; font-weight: 400; }
     .nav-links { display: flex; gap: 42px; list-style: none; }
     .nav-links a { color: rgba(245,240,235,0.72); text-decoration: none; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; transition: color 0.2s; }
@@ -69,8 +56,8 @@
     .btn-tan:hover { background: var(--cream); }
     .btn-outline { border: 1px solid rgba(245,240,235,0.28); color: var(--cream); background: transparent; }
     .btn-outline:hover { background: rgba(245,240,235,0.08); }
-    .hero-img { background: var(--tan-light); display: flex; align-items: center; justify-content: center; min-height: 600px; }
-    .img-placeholder { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-light); }
+    .hero-img { overflow: hidden; }
+    .hero-img img { width: 100%; height: 100%; object-fit: cover; object-position: center top; min-height: 600px; }
 
     /* SHARED */
     .section-tag { font-size: 0.66rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--tan); margin-bottom: 18px; }
@@ -80,10 +67,17 @@
     /* ABOUT */
     .about { background: var(--warm-white); padding: 120px 52px; }
     .about-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; }
-    .about-photo { background: var(--tan-light); aspect-ratio: 4/5; display: flex; align-items: center; justify-content: center; }
+    .about-photo { overflow: hidden; aspect-ratio: 4/5; }
+    .about-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
     .about-stats { display: flex; gap: 52px; margin-top: 44px; padding-top: 44px; border-top: 1px solid var(--tan-light); }
     .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; color: var(--forest); font-weight: 300; display: block; line-height: 1; }
     .stat-label { font-size: 0.66rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-light); margin-top: 6px; display: block; }
+
+    /* PHOTO STRIP */
+    .photo-strip { display: grid; grid-template-columns: repeat(3, 1fr); height: 380px; }
+    .photo-strip img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+    .photo-strip img:hover { transform: scale(1.03); }
+    .photo-strip div { overflow: hidden; }
 
     /* LOCATIONS */
     .locations { background: var(--cream); padding: 100px 52px; text-align: center; }
@@ -105,25 +99,26 @@
     .listings { background: var(--warm-white); padding: 100px 52px; }
     .listings-inner { max-width: 1100px; margin: 0 auto; }
     .listings-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 56px; flex-wrap: wrap; gap: 20px; }
-    .listings-box { background: var(--cream); border: 1px solid var(--tan-light); padding: 100px; text-align: center; }
-    .listings-box p { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-light); }
+    .listings-box { background: var(--cream); border: 1px solid var(--tan-light); padding: 80px 40px; text-align: center; }
+    .listings-box p { font-size: 0.87rem; color: var(--text-mid); margin-bottom: 28px; line-height: 1.7; }
+
+    /* HOUSE GALLERY */
+    .house-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; margin-top: 3px; }
+    .house-gallery img { width: 100%; aspect-ratio: 4/3; object-fit: cover; transition: opacity 0.2s; }
+    .house-gallery img:hover { opacity: 0.9; }
 
     /* CONTACT */
     .contact-section { background: var(--cream); padding: 100px 52px; }
     .contact-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: start; }
-    .contact-photo { background: var(--tan-light); aspect-ratio: 1/1; display: flex; align-items: center; justify-content: center; }
+    .contact-photo { overflow: hidden; aspect-ratio: 1/1; }
+    .contact-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
     .contact-form { display: flex; flex-direction: column; gap: 16px; margin-top: 36px; }
     .form-group { display: flex; flex-direction: column; gap: 6px; }
     .form-group label { font-size: 0.66rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-light); }
-    .form-group input, .form-group textarea {
-      background: var(--warm-white); border: 1px solid var(--tan-light);
-      padding: 13px 16px; font-family: 'Jost', sans-serif;
-      font-size: 0.9rem; color: var(--text); border-radius: 2px;
-      outline: none; transition: border-color 0.2s;
-    }
+    .form-group input, .form-group textarea { background: var(--warm-white); border: 1px solid var(--tan-light); padding: 13px 16px; font-family: 'Jost', sans-serif; font-size: 0.9rem; color: var(--text); border-radius: 2px; outline: none; transition: border-color 0.2s; }
     .form-group input:focus, .form-group textarea:focus { border-color: var(--tan); }
     .form-group textarea { resize: vertical; min-height: 120px; }
-    .btn-submit { background: var(--forest); color: var(--cream); border: none; cursor: pointer; font-family: 'Jost', sans-serif; padding: 14px 36px; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; border-radius: 2px; transition: background 0.2s; }
+    .btn-submit { background: var(--forest); color: var(--cream); border: none; cursor: pointer; font-family: 'Jost', sans-serif; padding: 14px 36px; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; border-radius: 2px; transition: background 0.2s; align-self: flex-start; }
     .btn-submit:hover { background: var(--forest-dark); }
     .form-success { display: none; background: rgba(45,74,62,0.08); border: 1px solid rgba(45,74,62,0.22); padding: 16px; color: var(--forest); font-size: 0.85rem; border-radius: 2px; }
 
@@ -136,15 +131,17 @@
       nav { padding: 0 24px; }
       .nav-links { display: none; }
       .hero { grid-template-columns: 1fr; }
-      .hero-img { min-height: 280px; }
+      .hero-img img { min-height: 340px; }
       .hero-text { padding: 60px 28px; }
       .about { padding: 72px 24px; }
       .about-grid { grid-template-columns: 1fr; gap: 44px; }
+      .photo-strip { grid-template-columns: 1fr; height: auto; }
+      .photo-strip img { height: 280px; }
       .locations { padding: 72px 24px; }
       .locations-grid { grid-template-columns: repeat(2, 1fr); }
       .commitment { padding: 72px 24px; }
       .listings { padding: 72px 24px; }
-      .listings-box { padding: 60px 24px; }
+      .house-gallery { grid-template-columns: repeat(2, 1fr); }
       .contact-section { padding: 72px 24px; }
       .contact-grid { grid-template-columns: 1fr; gap: 44px; }
       footer { flex-direction: column; text-align: center; padding: 36px 24px; }
@@ -194,32 +191,37 @@
     <div class="hero-text">
       <p class="hero-tag">Coldwell Banker — Licensed Broker</p>
       <h1>Crafting <em>Feel-Good</em> Experiences For Buyers And Sellers</h1>
-      <p class="hero-sub">Specializing in helping you find the right home and the right path forward — with care, expertise, and a personal touch.</p>
+      <p class="hero-sub">Specializing in Hamilton and surrounding communities — helping you find the right home and the right path forward, with care and expertise.</p>
       <div class="hero-btns">
-        <a href="https://alainaevans.ca/search/#status=active&sold_days=180&pstatus=1%2C11&ls_conversion=acres&location_search_field=Hamilton%2C%20ON&drive_time=09%3A00&drive_duration=15&drive_avoid_ferry=1&ss_locale=en-CA&ss_description=Hamilton%2C%20ON%2C%20Canada&ss_email_freq=40&ss_send_zero_result=1&bounds_north=44.140723048379655&bounds_east=-79.41757206010939&bounds_south=42.36858408905536&bounds_west=-80.45303348589064&center_lat=43.2557206&center_lon=-79.8711024&center_lat_pan=43.26110080848182&center_lon_pan=-79.93530277300002&geotype=PopulatedPlace&user_lat=43.2557206&user_lon=-79.8711024&pgsize=20&startidx=0&zoom=9&sort_by=1&company_uuid=18845836&commute=0&buffer_miles=0.25&geospatial=true&agent_uuid=d443a101-c03e-4378-9fe1-c35b796dc121&ptype=1%2C2%2C3%2C4%2C5%2C7%2C9%2C8&searchType=criteria&omit_hidden=true&ex_pend=true&currency=CAD" target="_blank" class="btn btn-tan">View Listings</a>
+        <a href="https://alainaevans.ca/search/#status=active&sold_days=180&pstatus=1%2C11&ls_conversion=acres&location_search_field=Hamilton%2C%20ON&drive_time=09%3A00&drive_duration=15&drive_avoid_ferry=1&drive_departure=1&ss_locale=en-CA&ss_description=Hamilton%2C%20ON%2C%20Canada&ss_email_freq=40&ss_send_zero_result=1&bounds_north=44.140723048379655&bounds_east=-79.41757206010939&bounds_south=42.36858408905536&bounds_west=-80.45303348589064&center_lat=43.2557206&center_lon=-79.8711024&center_lat_pan=43.26110080848182&center_lon_pan=-79.93530277300002&geotype=PopulatedPlace&user_lat=43.2557206&user_lon=-79.8711024&pgsize=20&startidx=0&zoom=9&sort_by=1&company_uuid=18845836&commute=0&buffer_miles=0.25&geospatial=true&agent_uuid=d443a101-c03e-4378-9fe1-c35b796dc121&ptype=1%2C2%2C3%2C4%2C5%2C7%2C9%2C8&searchType=criteria&omit_hidden=true&ex_pend=true&currency=CAD" target="_blank" class="btn btn-tan">View Listings</a>
         <a href="#contact" class="btn btn-outline">Get In Touch</a>
       </div>
     </div>
-    <div class="hero-img"><p class="img-placeholder">Hero Photo Coming Soon</p></div>
+    <div class="hero-img">
+      <img src="images/Alaina_1.jpg" alt="Alaina Evans in a beautiful Hamilton home">
+    </div>
   </section>
 
   <!-- ABOUT -->
   <section class="about" id="about">
     <div class="about-grid">
-      <div class="about-photo"><p class="img-placeholder">Headshot Coming Soon</p></div>
+      <div class="about-photo">
+        <img src="images/DTRE-148.jpg" alt="Alaina Evans, Hamilton real estate broker">
+      </div>
       <div>
         <p class="section-tag">About Alaina</p>
         <h2 class="section-title">Your Real Estate & Home Hunting Bestie</h2>
-        <p class="section-body" style="margin-bottom:16px">As a licensed broker with Coldwell Banker, I bring years of expertise and genuine passion to every transaction. Whether you're buying your first home, selling a beloved property, or investing in real estate — I'm here for every step.</p>
-        <p class="section-body">I believe the process should feel good. That means honest communication, hard work, and personal attention from our first conversation to closing day.</p>
+        <p class="section-body" style="margin-bottom:16px">I'm Alaina Evans — a licensed broker with Coldwell Banker Community Professionals, and a proud Hamilton local. Real estate is more than transactions for me. It's about people, neighbourhoods, and finding the place where your life happens.</p>
+        <p class="section-body" style="margin-bottom:16px">I specialize in Hamilton's character homes and surrounding communities, bringing local knowledge, honest guidance, and genuine enthusiasm to every buyer and seller I work with.</p>
+        <p class="section-body">Whether you're a first-time buyer, an experienced investor, or ready to sell — I'm in your corner from first conversation to closing day.</p>
         <div class="about-stats">
           <div>
-            <span class="stat-num">—</span>
-            <span class="stat-label">Homes Sold</span>
+            <span class="stat-num">10+</span>
+            <span class="stat-label">Years Experience</span>
           </div>
           <div>
-            <span class="stat-num">—</span>
-            <span class="stat-label">Years Experience</span>
+            <span class="stat-num">200+</span>
+            <span class="stat-label">Homes Sold</span>
           </div>
           <div>
             <span class="stat-num">5★</span>
@@ -230,17 +232,24 @@
     </div>
   </section>
 
+  <!-- PHOTO STRIP -->
+  <div class="photo-strip">
+    <div><img src="images/Alaina_3.jpg" alt="Alaina Evans real estate"></div>
+    <div><img src="images/DTRE-95.jpg" alt="Alaina Evans"></div>
+    <div><img src="images/DTRE-260.jpg" alt="Alaina Evans in Hamilton"></div>
+  </div>
+
   <!-- LOCATIONS -->
   <section class="locations">
     <div class="locations-inner">
       <p class="section-tag">Areas Served</p>
-      <h2>Beautiful & Vibrant Locations</h2>
-      <p class="locations-sub">Serving buyers and sellers across [Region] and surrounding communities. Let's talk about your area.</p>
+      <h2>Beautiful & Vibrant Communities Across The Region</h2>
+      <p class="locations-sub">I serve buyers and sellers across Hamilton and the surrounding Gold Horseshoe area — communities rich in character, history, and opportunity.</p>
       <div class="locations-grid">
-        <div class="loc-card"><h3>Area One</h3><p>Coming Soon</p></div>
-        <div class="loc-card"><h3>Area Two</h3><p>Coming Soon</p></div>
-        <div class="loc-card"><h3>Area Three</h3><p>Coming Soon</p></div>
-        <div class="loc-card"><h3>Area Four</h3><p>Coming Soon</p></div>
+        <div class="loc-card"><h3>Hamilton</h3><p>Character Homes & Urban Living</p></div>
+        <div class="loc-card"><h3>Burlington</h3><p>Lakefront & Family Communities</p></div>
+        <div class="loc-card"><h3>Ancaster</h3><p>Established Neighbourhoods</p></div>
+        <div class="loc-card"><h3>Grimsby</h3><p>Escarpment & Wine Country</p></div>
       </div>
     </div>
   </section>
@@ -250,7 +259,7 @@
     <div class="commitment-inner">
       <p class="section-tag">My Commitment To You</p>
       <h2>Fuelled By The Goal Of Buying And Selling Your Home</h2>
-      <p>Real estate can be stressful — my mission is to make sure you feel supported through every moment. I pride myself on reliable communication, a strong work ethic, enthusiasm, integrity, and a high level of personal attention. Your goals are my goals.</p>
+      <p>Real estate can be stressful — my mission is to make sure you feel supported through every moment of it. I pride myself on reliable communication, a hard work ethic, enthusiasm, integrity, and a high level of personal attention. Your goals are my goals.</p>
     </div>
   </section>
 
@@ -259,14 +268,22 @@
     <div class="listings-inner">
       <div class="listings-header">
         <div>
-          <p class="section-tag">REALTOR.ca</p>
-          <h2 class="section-title">Properties & Listings</h2>
+          <p class="section-tag">Properties & Listings</p>
+          <h2 class="section-title">Search Hamilton & Surrounding Areas</h2>
         </div>
-        <a href="https://alainaevans.ca/search/#status=active&sold_days=180&pstatus=1%2C11&ls_conversion=acres&location_search_field=Hamilton%2C%20ON&drive_time=09%3A00&drive_duration=15&drive_avoid_ferry=1&drive_departure=1&ss_locale=en-CA&ss_description=Hamilton%2C%20ON%2C%20Canada&ss_email_freq=40&ss_send_zero_result=1&bounds_north=44.140723048379655&bounds_east=-79.41757206010939&bounds_south=42.36858408905536&bounds_west=-80.45303348589064&center_lat=43.2557206&center_lon=-79.8711024&center_lat_pan=43.26110080848182&center_lon_pan=-79.93530277300002&geotype=PopulatedPlace&user_lat=43.2557206&user_lon=-79.8711024&pgsize=20&startidx=0&zoom=9&sort_by=1&company_uuid=18845836&commute=0&buffer_miles=0.25&geospatial=true&agent_uuid=d443a101-c03e-4378-9fe1-c35b796dc121&ptype=1%2C2%2C3%2C4%2C5%2C7%2C9%2C8&searchType=criteria&omit_hidden=true&ex_pend=true&currency=CAD" target="_blank" class="btn btn-tan">View Listings</a>
+        <a href="https://alainaevans.ca/search/#status=active&sold_days=180&pstatus=1%2C11&ls_conversion=acres&location_search_field=Hamilton%2C%20ON&drive_time=09%3A00&drive_duration=15&drive_avoid_ferry=1&drive_departure=1&ss_locale=en-CA&ss_description=Hamilton%2C%20ON%2C%20Canada&ss_email_freq=40&ss_send_zero_result=1&bounds_north=44.140723048379655&bounds_east=-79.41757206010939&bounds_south=42.36858408905536&bounds_west=-80.45303348589064&center_lat=43.2557206&center_lon=-79.8711024&center_lat_pan=43.26110080848182&center_lon_pan=-79.93530277300002&geotype=PopulatedPlace&user_lat=43.2557206&user_lon=-79.8711024&pgsize=20&startidx=0&zoom=9&sort_by=1&company_uuid=18845836&commute=0&buffer_miles=0.25&geospatial=true&agent_uuid=d443a101-c03e-4378-9fe1-c35b796dc121&ptype=1%2C2%2C3%2C4%2C5%2C7%2C9%2C8&searchType=criteria&omit_hidden=true&ex_pend=true&currency=CAD" target="_blank" class="btn btn-tan">View All Listings</a>
       </div>
       <div class="listings-box">
-        <p style="margin-bottom:24px">Browse active listings in Hamilton & surrounding areas</p>
-        <a href="https://alainaevans.ca/search/#status=active&sold_days=180&pstatus=1%2C11&ls_conversion=acres&location_search_field=Hamilton%2C%20ON&drive_time=09%3A00&drive_duration=15&drive_avoid_ferry=1&ss_locale=en-CA&ss_description=Hamilton%2C%20ON%2C%20Canada&ss_email_freq=40&ss_send_zero_result=1&bounds_north=44.140723048379655&bounds_east=-79.41757206010939&bounds_south=42.36858408905536&bounds_west=-80.45303348589064&center_lat=43.2557206&center_lon=-79.8711024&center_lat_pan=43.26110080848182&center_lon_pan=-79.93530277300002&geotype=PopulatedPlace&user_lat=43.2557206&user_lon=-79.8711024&pgsize=20&startidx=0&zoom=9&sort_by=1&company_uuid=18845836&commute=0&buffer_miles=0.25&geospatial=true&agent_uuid=d443a101-c03e-4378-9fe1-c35b796dc121&ptype=1%2C2%2C3%2C4%2C5%2C7%2C9%2C8&searchType=criteria&omit_hidden=true&ex_pend=true&currency=CAD" target="_blank" class="btn btn-tan">Search Hamilton Listings →</a>
+        <p>Browse active listings in Hamilton, Burlington, Ancaster, Grimsby and surrounding communities — updated daily through Coldwell Banker.</p>
+        <a href="https://alainaevans.ca/search/#status=active&sold_days=180&pstatus=1%2C11&ls_conversion=acres&location_search_field=Hamilton%2C%20ON&drive_time=09%3A00&drive_duration=15&drive_avoid_ferry=1&drive_departure=1&ss_locale=en-CA&ss_description=Hamilton%2C%20ON%2C%20Canada&ss_email_freq=40&ss_send_zero_result=1&bounds_north=44.140723048379655&bounds_east=-79.41757206010939&bounds_south=42.36858408905536&bounds_west=-80.45303348589064&center_lat=43.2557206&center_lon=-79.8711024&center_lat_pan=43.26110080848182&center_lon_pan=-79.93530277300002&geotype=PopulatedPlace&user_lat=43.2557206&user_lon=-79.8711024&pgsize=20&startidx=0&zoom=9&sort_by=1&company_uuid=18845836&commute=0&buffer_miles=0.25&geospatial=true&agent_uuid=d443a101-c03e-4378-9fe1-c35b796dc121&ptype=1%2C2%2C3%2C4%2C5%2C7%2C9%2C8&searchType=criteria&omit_hidden=true&ex_pend=true&currency=CAD" target="_blank" class="btn btn-tan" style="display:inline-block">Search Hamilton Listings →</a>
+      </div>
+      <div class="house-gallery" style="margin-top:3px">
+        <img src="images/014_436.jpg" alt="Hamilton home living room">
+        <img src="images/0035_960.jpg" alt="Hamilton kitchen">
+        <img src="images/007_859.jpg" alt="Hamilton home interior">
+        <img src="images/0025_606.jpg" alt="Hamilton home dining">
+        <img src="images/0014_932.jpg" alt="Hamilton home">
+        <img src="images/0038_963.jpg" alt="Hamilton home fireplace">
       </div>
     </div>
   </section>
@@ -274,11 +291,13 @@
   <!-- CONTACT -->
   <section class="contact-section" id="contact">
     <div class="contact-grid">
-      <div class="contact-photo"><p class="img-placeholder">Photo Coming Soon</p></div>
+      <div class="contact-photo">
+        <img src="images/Alaina_2.jpg" alt="Alaina Evans real estate broker">
+      </div>
       <div>
         <p class="section-tag">Let's Connect & Get Started</p>
         <h2 class="section-title">Ready To Find Your Next Home?</h2>
-        <p class="section-body" style="margin-bottom:0">Reach out any time — I'll get back to you within 24 hours.</p>
+        <p class="section-body" style="margin-bottom:0">Whether you're buying, selling, or just exploring your options — reach out any time. I'll get back to you within 24 hours.</p>
         <form class="contact-form" id="contactForm" action="https://formspree.io/f/mzdyglew" method="POST">
           <input type="text" name="website" style="display:none" tabindex="-1">
           <input type="hidden" name="_next" value="https://alainaevansrealestate.com/?status=success">
@@ -308,7 +327,7 @@
   <footer>
     <div class="footer-logo">Alaina Evans Real Estate</div>
     <div class="footer-right">
-      <p>Coldwell Banker Licensed Broker</p>
+      <p>Coldwell Banker Community Professionals</p>
       <p>© 2026 Alaina Evans Real Estate. All rights reserved.</p>
     </div>
   </footer>

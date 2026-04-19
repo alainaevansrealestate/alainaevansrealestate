@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alaina Evans Real Estate</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #1C2B3A;
+      --gold: #C9A96E;
+      --cream: #F8F5F0;
+      --white: #FFFFFF;
+      --gray: #6B7280;
+      --light: #EEE9E2;
+    }
+
+    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--navy); }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(28, 43, 58, 0.97);
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 0 48px; height: 72px;
+    }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--white); letter-spacing: 0.05em; }
+    .nav-logo span { color: var(--gold); }
+    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--gold); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--navy) 0%, #2C4158 60%, #1C2B3A 100%);
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; padding: 120px 24px 80px;
+    }
+    .hero-inner { max-width: 720px; }
+    .hero-tag { font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 6vw, 4.5rem); color: var(--white); line-height: 1.15; margin-bottom: 24px; }
+    .hero h1 em { color: var(--gold); font-style: italic; }
+    .hero p { font-size: 1.05rem; color: rgba(255,255,255,0.7); line-height: 1.7; max-width: 520px; margin: 0 auto 40px; }
+    .btn { display: inline-block; background: var(--gold); color: var(--navy); padding: 14px 36px; font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 500; text-decoration: none; border-radius: 2px; transition: all 0.2s; }
+    .btn:hover { background: var(--white); }
+    .btn-outline { background: transparent; border: 1px solid rgba(255,255,255,0.4); color: var(--white); margin-left: 16px; }
+    .btn-outline:hover { background: rgba(255,255,255,0.1); color: var(--white); }
+
+    /* SECTIONS */
+    section { padding: 100px 24px; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-tag { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 2.8rem); color: var(--navy); line-height: 1.2; margin-bottom: 20px; }
+    .section-body { font-size: 1rem; color: var(--gray); line-height: 1.8; max-width: 580px; }
+
+    /* ABOUT */
+    .about { background: var(--white); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .about-image { background: var(--light); aspect-ratio: 3/4; border-radius: 2px; display: flex; align-items: center; justify-content: center; }
+    .about-image p { color: var(--gray); font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; }
+    .about-stats { display: flex; gap: 40px; margin-top: 40px; }
+    .stat-num { font-family: 'Playfair Display', serif; font-size: 2.4rem; color: var(--gold); display: block; }
+    .stat-label { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray); }
+
+    /* SERVICES */
+    .services { background: var(--cream); }
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 60px; }
+    .service-card { background: var(--white); padding: 40px 32px; border-radius: 2px; border-top: 3px solid var(--gold); }
+    .service-card h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--navy); margin-bottom: 16px; }
+    .service-card p { font-size: 0.9rem; color: var(--gray); line-height: 1.7; }
+
+    /* LISTINGS */
+    .listings { background: var(--navy); }
+    .listings .section-title { color: var(--white); }
+    .listings .section-body { color: rgba(255,255,255,0.6); }
+    .listings-placeholder { margin-top: 60px; background: rgba(255,255,255,0.05); border: 1px solid rgba(201,169,110,0.3); border-radius: 2px; padding: 80px; text-align: center; }
+    .listings-placeholder p { color: rgba(255,255,255,0.4); font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; }
+
+    /* CONTACT */
+    .contact { background: var(--white); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+    .contact-form { display: flex; flex-direction: column; gap: 16px; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-group label { font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray); }
+    .form-group input, .form-group textarea {
+      background: var(--cream); border: 1px solid var(--light); padding: 14px 16px;
+      font-family: 'DM Sans', sans-serif; font-size: 0.95rem; color: var(--navy);
+      border-radius: 2px; outline: none; transition: border-color 0.2s;
+    }
+    .form-group input:focus, .form-group textarea:focus { border-color: var(--gold); }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .btn-navy { background: var(--navy); color: var(--white); border: none; cursor: pointer; font-family: 'DM Sans', sans-serif; }
+    .btn-navy:hover { background: #2C4158; color: var(--white); }
+    .contact-info { padding-top: 8px; }
+    .contact-info h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 24px; }
+    .contact-detail { margin-bottom: 20px; }
+    .contact-detail strong { display: block; font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 4px; }
+    .contact-detail span { font-size: 0.95rem; color: var(--gray); }
+
+    /* FOOTER */
+    footer { background: var(--navy); padding: 40px 48px; display: flex; justify-content: space-between; align-items: center; }
+    footer p { font-size: 0.8rem; color: rgba(255,255,255,0.4); }
+    footer span { color: var(--gold); }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 24px; }
+      .nav-links { display: none; }
+      .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .about-stats { flex-wrap: wrap; gap: 24px; }
+      footer { flex-direction: column; gap: 12px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-logo">Alaina Evans <span>Real Estate</span></div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#listings">Listings</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <p class="hero-tag">RE/MAX — Licensed Broker</p>
+      <h1>Finding Your <em>Perfect</em> Home Starts Here</h1>
+      <p>With deep market knowledge and a commitment to exceptional service, I help buyers and sellers navigate real estate with confidence.</p>
+      <a href="#listings" class="btn">View Listings</a>
+      <a href="#contact" class="btn btn-outline">Get In Touch</a>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-image">
+          <p>Headshot Coming Soon</p>
+        </div>
+        <div>
+          <p class="section-tag">About Alaina</p>
+          <h2 class="section-title">A Realtor Who Puts You First</h2>
+          <p class="section-body">As a licensed broker with RE/MAX, I bring years of experience and genuine passion to every transaction. Whether you're buying your first home, selling a property, or investing in real estate, I'm here to guide you every step of the way.</p>
+          <div class="about-stats">
+            <div>
+              <span class="stat-num">—</span>
+              <span class="stat-label">Homes Sold</span>
+            </div>
+            <div>
+              <span class="stat-num">—</span>
+              <span class="stat-label">Years Experience</span>
+            </div>
+            <div>
+              <span class="stat-num">5★</span>
+              <span class="stat-label">Client Rating</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="container">
+      <p class="section-tag">What I Do</p>
+      <h2 class="section-title">How I Can Help You</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <h3>Buying</h3>
+          <p>I'll help you find the right property at the right price, navigating every step from search to closing with expert guidance.</p>
+        </div>
+        <div class="service-card">
+          <h3>Selling</h3>
+          <p>Strategic pricing, professional marketing, and skilled negotiation to get you the best possible result for your property.</p>
+        </div>
+        <div class="service-card">
+          <h3>Investing</h3>
+          <p>Whether you're looking for your first investment or expanding a portfolio, I'll help you identify the right opportunities.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LISTINGS -->
+  <section class="listings" id="listings">
+    <div class="container">
+      <p class="section-tag">REALTOR.ca</p>
+      <h2 class="section-title">Current Listings</h2>
+      <p class="section-body">Browse active listings updated directly from REALTOR.ca.</p>
+      <div class="listings-placeholder">
+        <p>Listings Widget Coming Soon</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div>
+          <p class="section-tag">Get In Touch</p>
+          <h2 class="section-title">Let's Talk Real Estate</h2>
+          <p class="section-body" style="margin-bottom: 40px;">Ready to buy, sell, or just explore your options? Reach out and I'll get back to you within 24 hours.</p>
+          <form class="contact-form" action="https://formspree.io/f/placeholder" method="POST">
+            <input type="text" name="website" style="display:none">
+            <div class="form-group">
+              <label>Name</label>
+              <input type="text" name="name" placeholder="Your full name" required>
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" name="email" placeholder="your@email.com" required>
+            </div>
+            <div class="form-group">
+              <label>Message</label>
+              <textarea name="message" placeholder="How can I help you?" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-navy" style="padding: 14px 36px; font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase;">Send Message</button>
+          </form>
+        </div>
+        <div class="contact-info">
+          <h3>Alaina Evans</h3>
+          <div class="contact-detail">
+            <strong>Brokerage</strong>
+            <span>RE/MAX</span>
+          </div>
+          <div class="contact-detail">
+            <strong>Email</strong>
+            <span>hello@alainaevansrealestate.com</span>
+          </div>
+          <div class="contact-detail">
+            <strong>Phone</strong>
+            <span>Coming soon</span>
+          </div>
+          <div class="contact-detail">
+            <strong>Areas Served</strong>
+            <span>Coming soon</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 <span>Alaina Evans Real Estate</span>. All rights reserved.</p>
+    <p>RE/MAX Licensed Broker</p>
+  </footer>
+
+</body>
+</html>

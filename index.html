@@ -4,124 +4,186 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Alaina Evans Real Estate</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --navy: #1C2B3A;
-      --gold: #C9A96E;
-      --cream: #F8F5F0;
-      --white: #FFFFFF;
-      --gray: #6B7280;
-      --light: #EEE9E2;
+      --forest: #2D4A3E;
+      --forest-dark: #1E3329;
+      --cream: #F5F0EB;
+      --warm-white: #FDFAF7;
+      --tan: #C9B99A;
+      --tan-light: #E8DDD0;
+      --text: #2A2A2A;
+      --text-mid: #6B6B6B;
+      --text-light: #9A9A9A;
     }
+    body { font-family: 'Jost', sans-serif; background: var(--warm-white); color: var(--text); overflow-x: hidden; }
 
-    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--navy); }
+    /* PASSWORD */
+    #pw-overlay {
+      position: fixed; inset: 0; z-index: 9999;
+      background: var(--forest-dark);
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 20px;
+    }
+    #pw-overlay .pw-tag { font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(245,240,235,0.4); }
+    #pw-overlay h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.9rem; color: var(--cream); letter-spacing: 0.08em; font-weight: 300; }
+    #pw-input {
+      padding: 14px 20px; font-family: 'Jost', sans-serif; font-size: 1rem;
+      background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.18);
+      color: var(--cream); border-radius: 2px; outline: none;
+      width: 300px; text-align: center; letter-spacing: 0.08em;
+    }
+    #pw-input::placeholder { color: rgba(255,255,255,0.25); }
+    #pw-btn {
+      padding: 12px 44px; background: var(--tan); border: none;
+      font-family: 'Jost', sans-serif; font-size: 0.72rem; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--forest-dark); cursor: pointer;
+      border-radius: 2px; transition: background 0.2s;
+    }
+    #pw-btn:hover { background: var(--cream); }
+    #pw-error { font-size: 0.72rem; color: #E07070; letter-spacing: 0.1em; display: none; }
 
     /* NAV */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: rgba(28, 43, 58, 0.97);
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 0 48px; height: 72px;
+      background: var(--forest); display: flex; align-items: center;
+      justify-content: space-between; padding: 0 52px; height: 76px;
     }
-    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--white); letter-spacing: 0.05em; }
-    .nav-logo span { color: var(--gold); }
-    .nav-links { display: flex; gap: 36px; list-style: none; }
-    .nav-links a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; transition: color 0.2s; }
-    .nav-links a:hover { color: var(--gold); }
+    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.12rem; color: var(--cream); letter-spacing: 0.14em; text-decoration: none; text-transform: uppercase; font-weight: 400; }
+    .nav-links { display: flex; gap: 42px; list-style: none; }
+    .nav-links a { color: rgba(245,240,235,0.72); text-decoration: none; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--tan); }
 
     /* HERO */
-    .hero {
-      min-height: 100vh;
-      background: linear-gradient(135deg, var(--navy) 0%, #2C4158 60%, #1C2B3A 100%);
-      display: flex; align-items: center; justify-content: center;
-      text-align: center; padding: 120px 24px 80px;
-    }
-    .hero-inner { max-width: 720px; }
-    .hero-tag { font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; }
-    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 6vw, 4.5rem); color: var(--white); line-height: 1.15; margin-bottom: 24px; }
-    .hero h1 em { color: var(--gold); font-style: italic; }
-    .hero p { font-size: 1.05rem; color: rgba(255,255,255,0.7); line-height: 1.7; max-width: 520px; margin: 0 auto 40px; }
-    .btn { display: inline-block; background: var(--gold); color: var(--navy); padding: 14px 36px; font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 500; text-decoration: none; border-radius: 2px; transition: all 0.2s; }
-    .btn:hover { background: var(--white); }
-    .btn-outline { background: transparent; border: 1px solid rgba(255,255,255,0.4); color: var(--white); margin-left: 16px; }
-    .btn-outline:hover { background: rgba(255,255,255,0.1); color: var(--white); }
+    .hero { min-height: 100vh; padding-top: 76px; display: grid; grid-template-columns: 1fr 1fr; }
+    .hero-text { background: var(--forest); display: flex; flex-direction: column; justify-content: center; padding: 80px 64px; }
+    .hero-tag { font-size: 0.66rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--tan); margin-bottom: 30px; }
+    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.6rem, 4vw, 3.9rem); color: var(--cream); line-height: 1.18; font-weight: 300; margin-bottom: 28px; }
+    .hero h1 em { font-style: italic; color: var(--tan); }
+    .hero-sub { font-size: 0.88rem; color: rgba(245,240,235,0.58); line-height: 1.85; max-width: 400px; margin-bottom: 46px; }
+    .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn { display: inline-block; padding: 13px 34px; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; border-radius: 2px; transition: all 0.2s; font-weight: 500; }
+    .btn-tan { background: var(--tan); color: var(--forest-dark); }
+    .btn-tan:hover { background: var(--cream); }
+    .btn-outline { border: 1px solid rgba(245,240,235,0.28); color: var(--cream); background: transparent; }
+    .btn-outline:hover { background: rgba(245,240,235,0.08); }
+    .hero-img { background: var(--tan-light); display: flex; align-items: center; justify-content: center; min-height: 600px; }
+    .img-placeholder { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-light); }
 
-    /* SECTIONS */
-    section { padding: 100px 24px; }
-    .container { max-width: 1100px; margin: 0 auto; }
-    .section-tag { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
-    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 2.8rem); color: var(--navy); line-height: 1.2; margin-bottom: 20px; }
-    .section-body { font-size: 1rem; color: var(--gray); line-height: 1.8; max-width: 580px; }
+    /* SHARED */
+    .section-tag { font-size: 0.66rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--tan); margin-bottom: 18px; }
+    .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.9rem, 3.5vw, 2.8rem); color: var(--forest-dark); line-height: 1.2; font-weight: 300; margin-bottom: 22px; }
+    .section-body { font-size: 0.9rem; color: var(--text-mid); line-height: 1.88; }
 
     /* ABOUT */
-    .about { background: var(--white); }
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-    .about-image { background: var(--light); aspect-ratio: 3/4; border-radius: 2px; display: flex; align-items: center; justify-content: center; }
-    .about-image p { color: var(--gray); font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; }
-    .about-stats { display: flex; gap: 40px; margin-top: 40px; }
-    .stat-num { font-family: 'Playfair Display', serif; font-size: 2.4rem; color: var(--gold); display: block; }
-    .stat-label { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray); }
+    .about { background: var(--warm-white); padding: 120px 52px; }
+    .about-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; }
+    .about-photo { background: var(--tan-light); aspect-ratio: 4/5; display: flex; align-items: center; justify-content: center; }
+    .about-stats { display: flex; gap: 52px; margin-top: 44px; padding-top: 44px; border-top: 1px solid var(--tan-light); }
+    .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; color: var(--forest); font-weight: 300; display: block; line-height: 1; }
+    .stat-label { font-size: 0.66rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-light); margin-top: 6px; display: block; }
 
-    /* SERVICES */
-    .services { background: var(--cream); }
-    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 60px; }
-    .service-card { background: var(--white); padding: 40px 32px; border-radius: 2px; border-top: 3px solid var(--gold); }
-    .service-card h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--navy); margin-bottom: 16px; }
-    .service-card p { font-size: 0.9rem; color: var(--gray); line-height: 1.7; }
+    /* LOCATIONS */
+    .locations { background: var(--cream); padding: 100px 52px; text-align: center; }
+    .locations-inner { max-width: 980px; margin: 0 auto; }
+    .locations h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.7rem, 3vw, 2.5rem); color: var(--forest-dark); font-weight: 300; margin-bottom: 14px; }
+    .locations-sub { font-size: 0.87rem; color: var(--text-mid); margin-bottom: 60px; line-height: 1.75; max-width: 580px; margin-left: auto; margin-right: auto; }
+    .locations-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .loc-card { background: var(--warm-white); padding: 40px 20px; }
+    .loc-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; color: var(--forest); font-weight: 400; margin-bottom: 8px; }
+    .loc-card p { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-light); }
+
+    /* COMMITMENT */
+    .commitment { background: var(--forest); padding: 100px 52px; text-align: center; }
+    .commitment-inner { max-width: 680px; margin: 0 auto; }
+    .commitment h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 3.5vw, 2.9rem); color: var(--cream); font-weight: 300; margin-bottom: 26px; line-height: 1.28; }
+    .commitment p { font-size: 0.9rem; color: rgba(245,240,235,0.62); line-height: 1.88; }
 
     /* LISTINGS */
-    .listings { background: var(--navy); }
-    .listings .section-title { color: var(--white); }
-    .listings .section-body { color: rgba(255,255,255,0.6); }
-    .listings-placeholder { margin-top: 60px; background: rgba(255,255,255,0.05); border: 1px solid rgba(201,169,110,0.3); border-radius: 2px; padding: 80px; text-align: center; }
-    .listings-placeholder p { color: rgba(255,255,255,0.4); font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; }
+    .listings { background: var(--warm-white); padding: 100px 52px; }
+    .listings-inner { max-width: 1100px; margin: 0 auto; }
+    .listings-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 56px; flex-wrap: wrap; gap: 20px; }
+    .listings-box { background: var(--cream); border: 1px solid var(--tan-light); padding: 100px; text-align: center; }
+    .listings-box p { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-light); }
 
     /* CONTACT */
-    .contact { background: var(--white); }
-    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
-    .contact-form { display: flex; flex-direction: column; gap: 16px; }
+    .contact-section { background: var(--cream); padding: 100px 52px; }
+    .contact-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: start; }
+    .contact-photo { background: var(--tan-light); aspect-ratio: 1/1; display: flex; align-items: center; justify-content: center; }
+    .contact-form { display: flex; flex-direction: column; gap: 16px; margin-top: 36px; }
     .form-group { display: flex; flex-direction: column; gap: 6px; }
-    .form-group label { font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray); }
+    .form-group label { font-size: 0.66rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-light); }
     .form-group input, .form-group textarea {
-      background: var(--cream); border: 1px solid var(--light); padding: 14px 16px;
-      font-family: 'DM Sans', sans-serif; font-size: 0.95rem; color: var(--navy);
-      border-radius: 2px; outline: none; transition: border-color 0.2s;
+      background: var(--warm-white); border: 1px solid var(--tan-light);
+      padding: 13px 16px; font-family: 'Jost', sans-serif;
+      font-size: 0.9rem; color: var(--text); border-radius: 2px;
+      outline: none; transition: border-color 0.2s;
     }
-    .form-group input:focus, .form-group textarea:focus { border-color: var(--gold); }
+    .form-group input:focus, .form-group textarea:focus { border-color: var(--tan); }
     .form-group textarea { resize: vertical; min-height: 120px; }
-    .btn-navy { background: var(--navy); color: var(--white); border: none; cursor: pointer; font-family: 'DM Sans', sans-serif; }
-    .btn-navy:hover { background: #2C4158; color: var(--white); }
-    .contact-info { padding-top: 8px; }
-    .contact-info h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 24px; }
-    .contact-detail { margin-bottom: 20px; }
-    .contact-detail strong { display: block; font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 4px; }
-    .contact-detail span { font-size: 0.95rem; color: var(--gray); }
+    .btn-submit { background: var(--forest); color: var(--cream); border: none; cursor: pointer; font-family: 'Jost', sans-serif; padding: 14px 36px; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; border-radius: 2px; transition: background 0.2s; }
+    .btn-submit:hover { background: var(--forest-dark); }
+    .form-success { display: none; background: rgba(45,74,62,0.08); border: 1px solid rgba(45,74,62,0.22); padding: 16px; color: var(--forest); font-size: 0.85rem; border-radius: 2px; }
 
     /* FOOTER */
-    footer { background: var(--navy); padding: 40px 48px; display: flex; justify-content: space-between; align-items: center; }
-    footer p { font-size: 0.8rem; color: rgba(255,255,255,0.4); }
-    footer span { color: var(--gold); }
+    footer { background: var(--forest-dark); padding: 44px 52px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; color: var(--cream); letter-spacing: 0.14em; text-transform: uppercase; font-weight: 300; }
+    .footer-right p { font-size: 0.7rem; letter-spacing: 0.1em; color: rgba(245,240,235,0.32); text-align: right; line-height: 1.8; }
 
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
       nav { padding: 0 24px; }
       .nav-links { display: none; }
-      .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
-      .services-grid { grid-template-columns: 1fr; }
-      .about-stats { flex-wrap: wrap; gap: 24px; }
-      footer { flex-direction: column; gap: 12px; text-align: center; }
+      .hero { grid-template-columns: 1fr; }
+      .hero-img { min-height: 280px; }
+      .hero-text { padding: 60px 28px; }
+      .about { padding: 72px 24px; }
+      .about-grid { grid-template-columns: 1fr; gap: 44px; }
+      .locations { padding: 72px 24px; }
+      .locations-grid { grid-template-columns: repeat(2, 1fr); }
+      .commitment { padding: 72px 24px; }
+      .listings { padding: 72px 24px; }
+      .listings-box { padding: 60px 24px; }
+      .contact-section { padding: 72px 24px; }
+      .contact-grid { grid-template-columns: 1fr; gap: 44px; }
+      footer { flex-direction: column; text-align: center; padding: 36px 24px; }
+      .footer-right p { text-align: center; }
     }
   </style>
 </head>
 <body>
 
+  <!-- PASSWORD OVERLAY -->
+  <div id="pw-overlay">
+    <p class="pw-tag">Preview Access Only</p>
+    <h2>Alaina Evans Real Estate</h2>
+    <input type="password" id="pw-input" placeholder="Enter password" autocomplete="off">
+    <p id="pw-error">Incorrect password — please try again</p>
+    <button id="pw-btn" onclick="checkPw()">Enter</button>
+  </div>
+  <script>
+    if (sessionStorage.getItem('ae-auth') === 'yes') {
+      document.getElementById('pw-overlay').style.display = 'none';
+    }
+    document.getElementById('pw-input').addEventListener('keydown', e => { if (e.key === 'Enter') checkPw(); });
+    function checkPw() {
+      if (document.getElementById('pw-input').value === 'LoganE1234!') {
+        sessionStorage.setItem('ae-auth', 'yes');
+        document.getElementById('pw-overlay').style.display = 'none';
+      } else {
+        document.getElementById('pw-error').style.display = 'block';
+        document.getElementById('pw-input').value = '';
+        document.getElementById('pw-input').focus();
+      }
+    }
+  </script>
+
+  <!-- NAV -->
   <nav>
-    <div class="nav-logo">Alaina Evans <span>Real Estate</span></div>
+    <a class="nav-logo" href="#">Alaina Evans Real Estate</a>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
-      <li><a href="#services">Services</a></li>
       <li><a href="#listings">Listings</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -129,131 +191,132 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-inner">
+    <div class="hero-text">
       <p class="hero-tag">RE/MAX — Licensed Broker</p>
-      <h1>Finding Your <em>Perfect</em> Home Starts Here</h1>
-      <p>With deep market knowledge and a commitment to exceptional service, I help buyers and sellers navigate real estate with confidence.</p>
-      <a href="#listings" class="btn">View Listings</a>
-      <a href="#contact" class="btn btn-outline">Get In Touch</a>
+      <h1>Crafting <em>Feel-Good</em> Experiences For Buyers And Sellers</h1>
+      <p class="hero-sub">Specializing in helping you find the right home and the right path forward — with care, expertise, and a personal touch.</p>
+      <div class="hero-btns">
+        <a href="#listings" class="btn btn-tan">View Listings</a>
+        <a href="#contact" class="btn btn-outline">Get In Touch</a>
+      </div>
     </div>
+    <div class="hero-img"><p class="img-placeholder">Hero Photo Coming Soon</p></div>
   </section>
 
   <!-- ABOUT -->
   <section class="about" id="about">
-    <div class="container">
-      <div class="about-grid">
-        <div class="about-image">
-          <p>Headshot Coming Soon</p>
-        </div>
-        <div>
-          <p class="section-tag">About Alaina</p>
-          <h2 class="section-title">A Realtor Who Puts You First</h2>
-          <p class="section-body">As a licensed broker with RE/MAX, I bring years of experience and genuine passion to every transaction. Whether you're buying your first home, selling a property, or investing in real estate, I'm here to guide you every step of the way.</p>
-          <div class="about-stats">
-            <div>
-              <span class="stat-num">—</span>
-              <span class="stat-label">Homes Sold</span>
-            </div>
-            <div>
-              <span class="stat-num">—</span>
-              <span class="stat-label">Years Experience</span>
-            </div>
-            <div>
-              <span class="stat-num">5★</span>
-              <span class="stat-label">Client Rating</span>
-            </div>
+    <div class="about-grid">
+      <div class="about-photo"><p class="img-placeholder">Headshot Coming Soon</p></div>
+      <div>
+        <p class="section-tag">About Alaina</p>
+        <h2 class="section-title">Your Real Estate & Home Hunting Bestie</h2>
+        <p class="section-body" style="margin-bottom:16px">As a licensed broker with RE/MAX, I bring years of expertise and genuine passion to every transaction. Whether you're buying your first home, selling a beloved property, or investing in real estate — I'm here for every step.</p>
+        <p class="section-body">I believe the process should feel good. That means honest communication, hard work, and personal attention from our first conversation to closing day.</p>
+        <div class="about-stats">
+          <div>
+            <span class="stat-num">—</span>
+            <span class="stat-label">Homes Sold</span>
+          </div>
+          <div>
+            <span class="stat-num">—</span>
+            <span class="stat-label">Years Experience</span>
+          </div>
+          <div>
+            <span class="stat-num">5★</span>
+            <span class="stat-label">Client Rating</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SERVICES -->
-  <section class="services" id="services">
-    <div class="container">
-      <p class="section-tag">What I Do</p>
-      <h2 class="section-title">How I Can Help You</h2>
-      <div class="services-grid">
-        <div class="service-card">
-          <h3>Buying</h3>
-          <p>I'll help you find the right property at the right price, navigating every step from search to closing with expert guidance.</p>
-        </div>
-        <div class="service-card">
-          <h3>Selling</h3>
-          <p>Strategic pricing, professional marketing, and skilled negotiation to get you the best possible result for your property.</p>
-        </div>
-        <div class="service-card">
-          <h3>Investing</h3>
-          <p>Whether you're looking for your first investment or expanding a portfolio, I'll help you identify the right opportunities.</p>
-        </div>
+  <!-- LOCATIONS -->
+  <section class="locations">
+    <div class="locations-inner">
+      <p class="section-tag">Areas Served</p>
+      <h2>Beautiful & Vibrant Locations</h2>
+      <p class="locations-sub">Serving buyers and sellers across [Region] and surrounding communities. Let's talk about your area.</p>
+      <div class="locations-grid">
+        <div class="loc-card"><h3>Area One</h3><p>Coming Soon</p></div>
+        <div class="loc-card"><h3>Area Two</h3><p>Coming Soon</p></div>
+        <div class="loc-card"><h3>Area Three</h3><p>Coming Soon</p></div>
+        <div class="loc-card"><h3>Area Four</h3><p>Coming Soon</p></div>
       </div>
+    </div>
+  </section>
+
+  <!-- COMMITMENT -->
+  <section class="commitment">
+    <div class="commitment-inner">
+      <p class="section-tag">My Commitment To You</p>
+      <h2>Fuelled By The Goal Of Buying And Selling Your Home</h2>
+      <p>Real estate can be stressful — my mission is to make sure you feel supported through every moment. I pride myself on reliable communication, a strong work ethic, enthusiasm, integrity, and a high level of personal attention. Your goals are my goals.</p>
     </div>
   </section>
 
   <!-- LISTINGS -->
   <section class="listings" id="listings">
-    <div class="container">
-      <p class="section-tag">REALTOR.ca</p>
-      <h2 class="section-title">Current Listings</h2>
-      <p class="section-body">Browse active listings updated directly from REALTOR.ca.</p>
-      <div class="listings-placeholder">
+    <div class="listings-inner">
+      <div class="listings-header">
+        <div>
+          <p class="section-tag">REALTOR.ca</p>
+          <h2 class="section-title">Properties & Listings</h2>
+        </div>
+        <a href="#contact" class="btn btn-tan">Book A Showing</a>
+      </div>
+      <div class="listings-box">
         <p>Listings Widget Coming Soon</p>
       </div>
     </div>
   </section>
 
   <!-- CONTACT -->
-  <section class="contact" id="contact">
-    <div class="container">
-      <div class="contact-grid">
-        <div>
-          <p class="section-tag">Get In Touch</p>
-          <h2 class="section-title">Let's Talk Real Estate</h2>
-          <p class="section-body" style="margin-bottom: 40px;">Ready to buy, sell, or just explore your options? Reach out and I'll get back to you within 24 hours.</p>
-          <form class="contact-form" action="https://formspree.io/f/placeholder" method="POST">
-            <input type="text" name="website" style="display:none">
-            <div class="form-group">
-              <label>Name</label>
-              <input type="text" name="name" placeholder="Your full name" required>
-            </div>
-            <div class="form-group">
-              <label>Email</label>
-              <input type="email" name="email" placeholder="your@email.com" required>
-            </div>
-            <div class="form-group">
-              <label>Message</label>
-              <textarea name="message" placeholder="How can I help you?" required></textarea>
-            </div>
-            <button type="submit" class="btn btn-navy" style="padding: 14px 36px; font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase;">Send Message</button>
-          </form>
-        </div>
-        <div class="contact-info">
-          <h3>Alaina Evans</h3>
-          <div class="contact-detail">
-            <strong>Brokerage</strong>
-            <span>RE/MAX</span>
+  <section class="contact-section" id="contact">
+    <div class="contact-grid">
+      <div class="contact-photo"><p class="img-placeholder">Photo Coming Soon</p></div>
+      <div>
+        <p class="section-tag">Let's Connect & Get Started</p>
+        <h2 class="section-title">Ready To Find Your Next Home?</h2>
+        <p class="section-body" style="margin-bottom:0">Reach out any time — I'll get back to you within 24 hours.</p>
+        <form class="contact-form" id="contactForm" action="https://formspree.io/f/mzdyglew" method="POST">
+          <input type="text" name="website" style="display:none" tabindex="-1">
+          <div class="form-group">
+            <label>Name *</label>
+            <input type="text" name="name" placeholder="Your full name" required>
           </div>
-          <div class="contact-detail">
-            <strong>Email</strong>
-            <span>hello@alainaevansrealestate.com</span>
+          <div class="form-group">
+            <label>Email *</label>
+            <input type="email" name="email" placeholder="your@email.com" required>
           </div>
-          <div class="contact-detail">
-            <strong>Phone</strong>
-            <span>Coming soon</span>
+          <div class="form-group">
+            <label>Phone</label>
+            <input type="tel" name="phone" placeholder="Optional">
           </div>
-          <div class="contact-detail">
-            <strong>Areas Served</strong>
-            <span>Coming soon</span>
+          <div class="form-group">
+            <label>Message *</label>
+            <textarea name="message" placeholder="How can I help you?" required></textarea>
           </div>
-        </div>
+          <button type="submit" class="btn-submit">Send Message</button>
+          <div class="form-success" id="formSuccess">✓ Message sent! I'll be in touch soon.</div>
+        </form>
       </div>
     </div>
   </section>
 
   <footer>
-    <p>© 2026 <span>Alaina Evans Real Estate</span>. All rights reserved.</p>
-    <p>RE/MAX Licensed Broker</p>
+    <div class="footer-logo">Alaina Evans Real Estate</div>
+    <div class="footer-right">
+      <p>RE/MAX Licensed Broker</p>
+      <p>© 2026 Alaina Evans Real Estate. All rights reserved.</p>
+    </div>
   </footer>
+
+  <script>
+    const p = new URLSearchParams(window.location.search);
+    if (p.get('status') === 'success') {
+      document.getElementById('formSuccess').style.display = 'block';
+    }
+  </script>
 
 </body>
 </html>

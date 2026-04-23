@@ -149,7 +149,9 @@
       .about { padding: 72px 24px; }
       .about-grid { grid-template-columns: 1fr; gap: 44px; }
       .photo-strip { grid-template-columns: 1fr; height: auto; }
-      .photo-strip img { height: 280px; object-position: center top; }
+      .photo-strip img { height: 280px; object-position: center center; }
+      .photo-strip div:nth-child(2) img,
+      .photo-strip div:nth-child(3) img { object-position: center top; }
       .locations { padding: 72px 24px; }
       .locations-grid { grid-template-columns: repeat(2, 1fr); }
       .commitment { padding: 72px 24px; }

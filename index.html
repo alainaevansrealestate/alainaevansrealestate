@@ -108,7 +108,15 @@
     .house-gallery img:hover { opacity: 0.9; }
 
     /* CONTACT */
-    .contact-section { background: var(--cream); padding: 100px 52px; }
+    .testimonials { background: var(--warm-white); padding: 100px 52px; }
+    .testimonials-inner { max-width: 1100px; margin: 0 auto; }
+    .testimonials-header { text-align: center; margin-bottom: 60px; }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px; }
+    .testimonial-card { background: var(--cream); border: 1px solid var(--tan-light); padding: 40px 36px; display: flex; flex-direction: column; gap: 24px; }
+    .testimonial-stars { color: var(--tan); font-size: 0.9rem; letter-spacing: 0.1em; }
+    .testimonial-quote { font-size: 0.88rem; color: var(--text-mid); line-height: 1.88; font-style: italic; }
+    .testimonial-author { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; color: var(--tan); font-weight: 400; letter-spacing: 0.06em; }
+    @media(max-width:768px){ .testimonials { padding: 72px 24px; } .testimonials-grid { grid-template-columns: 1fr; } }
     .contact-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: start; }
     .contact-photo { overflow: hidden; aspect-ratio: 1/1; }
     .contact-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
@@ -290,6 +298,32 @@
   </section>
 
   <!-- CONTACT -->
+  <section class="testimonials" id="testimonials">
+    <div class="testimonials-inner">
+      <div class="testimonials-header">
+        <p class="section-tag">Client Love</p>
+        <h2 class="section-title">What People Are Saying</h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-quote">Working with Alaina Evans was an exceptional experience. As someone unfamiliar with the Hamilton area, I initially felt overwhelmed and unsure of what I wanted. Alaina was incredibly attentive and took the time to understand my needs, helping me narrow down exactly what I was looking for. Her knowledge of Hamilton's neighbourhoods and the nuances of homes from different eras was invaluable. Thanks to her, my partner and I found a beautiful row house with top-of-the-line upgrades, beyond what we imagined — and even secured it under asking price, which felt unheard of.</p>
+          <span class="testimonial-author">— Christopher Keem</span>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-quote">My boyfriend and I had an incredible experience working with Alaina! From start to finish, she was nothing short of amazing. She was always available to answer questions, explain the process clearly, and guide us every step of the way. What really stood out was how genuinely she cared — not just about closing a deal, but about making sure we found the right home for us. If you're looking for a realtor who is professional, knowledgeable, and truly dedicated to your best interests, we can't recommend Alaina enough!</p>
+          <span class="testimonial-author">— Riley Monaghan</span>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-quote">Working with Alaina was an absolute pleasure from start to finish. As a first-time homebuyer, I had a lot of questions and concerns, but she guided me through every step with patience, professionalism, and deep market knowledge. What stood out was her honesty and commitment to helping us find the right home. When it came time to negotiate, Alaina was a strong advocate on our behalf and made sure we got the best deal possible. I highly recommend her to anyone looking to buy or sell — you'll be in excellent hands!</p>
+          <span class="testimonial-author">— Susan Toth</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="contact-section" id="contact">
     <div class="contact-grid">
       <div class="contact-photo">

@@ -37,25 +37,25 @@
     #pw-error { font-size: 0.72rem; color: #E07070; letter-spacing: 0.1em; display: none; }
 
     /* NAV */
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--forest); display: flex; align-items: center; justify-content: space-between; padding: 0 52px; height: 76px; }
-    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.12rem; color: var(--cream); letter-spacing: 0.14em; text-decoration: none; text-transform: uppercase; font-weight: 400; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--warm-white); border-bottom: 1px solid var(--tan-light); display: flex; align-items: center; justify-content: space-between; padding: 0 52px; height: 76px; }
+    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.12rem; color: var(--tan); letter-spacing: 0.14em; text-decoration: none; text-transform: uppercase; font-weight: 400; }
     .nav-links { display: flex; gap: 42px; list-style: none; }
-    .nav-links a { color: rgba(245,240,235,0.72); text-decoration: none; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; transition: color 0.2s; }
+    .nav-links a { color: var(--text-mid); text-decoration: none; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; transition: color 0.2s; }
     .nav-links a:hover { color: var(--tan); }
 
     /* HERO */
     .hero { min-height: 100vh; padding-top: 76px; display: grid; grid-template-columns: 1fr 1fr; }
-    .hero-text { background: var(--forest); display: flex; flex-direction: column; justify-content: center; padding: 80px 64px; }
+    .hero-text { background: var(--warm-white); display: flex; flex-direction: column; justify-content: center; padding: 80px 64px; }
     .hero-tag { font-size: 0.66rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--tan); margin-bottom: 30px; }
-    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.6rem, 4vw, 3.9rem); color: var(--cream); line-height: 1.18; font-weight: 300; margin-bottom: 28px; }
+    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.6rem, 4vw, 3.9rem); color: var(--tan); line-height: 1.18; font-weight: 300; margin-bottom: 28px; }
     .hero h1 em { font-style: italic; color: var(--tan); }
-    .hero-sub { font-size: 0.88rem; color: rgba(245,240,235,0.58); line-height: 1.85; max-width: 400px; margin-bottom: 46px; }
+    .hero-sub { font-size: 0.88rem; color: var(--text-mid); line-height: 1.85; max-width: 400px; margin-bottom: 46px; }
     .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
     .btn { display: inline-block; padding: 13px 34px; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; border-radius: 2px; transition: all 0.2s; font-weight: 500; }
     .btn-tan { background: var(--tan); color: var(--cream); }
     .btn-tan:hover { background: var(--cream); }
-    .btn-outline { border: 1px solid rgba(245,240,235,0.28); color: var(--cream); background: transparent; }
-    .btn-outline:hover { background: rgba(245,240,235,0.08); }
+    .btn-outline { border: 1px solid var(--tan); color: var(--tan); background: transparent; }
+    .btn-outline:hover { background: rgba(151,146,101,0.08); }
     .hero-img { overflow: hidden; }
     .hero-img img { width: 100%; height: 100%; object-fit: cover; object-position: center top; min-height: 600px; }
 

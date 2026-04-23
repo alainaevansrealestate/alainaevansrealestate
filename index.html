@@ -15,6 +15,8 @@
       --warm-white: #FDFAF7;
       --tan: #979265;
       --tan-light: #d4d1b8;
+      --rose: #C4A99A;
+      --rose-light: #ecddd8;
       --text: #7a7260;
       --text-mid: #9e9680;
       --text-light: #b8b09a;
@@ -41,7 +43,7 @@
     .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.12rem; color: var(--cream); letter-spacing: 0.14em; text-decoration: none; text-transform: uppercase; font-weight: 400; }
     .nav-links { display: flex; gap: 42px; list-style: none; }
     .nav-links a { color: rgba(245,240,235,0.82); text-decoration: none; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; transition: color 0.2s; }
-    .nav-links a:hover { color: var(--tan); }
+    .nav-links a:hover { color: var(--rose); }
 
     /* HERO */
     .hero { min-height: 100vh; padding-top: 76px; display: grid; grid-template-columns: 1fr 1fr; }
@@ -53,14 +55,14 @@
     .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
     .btn { display: inline-block; padding: 13px 34px; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; border-radius: 2px; transition: all 0.2s; font-weight: 500; }
     .btn-tan { background: var(--tan); color: var(--cream); }
-    .btn-tan:hover { background: var(--cream); }
+    .btn-tan:hover { background: var(--rose); }
     .btn-outline { border: 1px solid var(--tan); color: var(--tan); background: transparent; }
-    .btn-outline:hover { background: rgba(151,146,101,0.08); }
+    .btn-outline:hover { background: rgba(196,169,154,0.12); border-color: var(--rose); color: var(--rose); }
     .hero-img { overflow: hidden; }
     .hero-img img { width: 100%; height: 100%; object-fit: cover; object-position: center top; min-height: 600px; }
 
     /* SHARED */
-    .section-tag { font-size: 0.66rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--tan); margin-bottom: 18px; }
+    .section-tag { font-size: 0.66rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--rose); margin-bottom: 18px; }
     .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.9rem, 3.5vw, 2.8rem); color: var(--tan); line-height: 1.2; font-weight: 300; margin-bottom: 22px; }
     .section-body { font-size: 0.9rem; color: var(--text-mid); line-height: 1.88; }
 
@@ -69,8 +71,8 @@
     .about-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; }
     .about-photo { overflow: hidden; aspect-ratio: 4/5; }
     .about-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
-    .about-stats { display: flex; gap: 52px; margin-top: 44px; padding-top: 44px; border-top: 1px solid var(--tan-light); }
-    .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; color: var(--tan); font-weight: 300; display: block; line-height: 1; }
+    .about-stats { display: flex; gap: 52px; margin-top: 44px; padding-top: 44px; border-top: 1px solid var(--rose-light); }
+    .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; color: var(--rose); font-weight: 300; display: block; line-height: 1; }
     .stat-label { font-size: 0.66rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-light); margin-top: 6px; display: block; }
 
     /* PHOTO STRIP */
@@ -113,9 +115,9 @@
     .testimonials-header { text-align: center; margin-bottom: 60px; }
     .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px; }
     .testimonial-card { background: var(--cream); border: 1px solid var(--tan-light); padding: 40px 36px; display: flex; flex-direction: column; gap: 24px; }
-    .testimonial-stars { color: var(--tan); font-size: 0.9rem; letter-spacing: 0.1em; }
+    .testimonial-stars { color: var(--rose); font-size: 0.9rem; letter-spacing: 0.1em; }
     .testimonial-quote { font-size: 0.88rem; color: var(--text-mid); line-height: 1.88; font-style: italic; }
-    .testimonial-author { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; color: var(--tan); font-weight: 400; letter-spacing: 0.06em; }
+    .testimonial-author { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; color: var(--rose); font-weight: 400; letter-spacing: 0.06em; }
     @media(max-width:768px){ .testimonials { padding: 72px 24px; } .testimonials-grid { grid-template-columns: 1fr; } }
     .contact-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: start; }
     .contact-section { background: var(--cream); padding: 100px 52px 120px; }
@@ -125,7 +127,7 @@
     .form-group { display: flex; flex-direction: column; gap: 6px; }
     .form-group label { font-size: 0.66rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-light); }
     .form-group input, .form-group textarea { background: var(--warm-white); border: 1px solid var(--tan-light); padding: 13px 16px; font-family: 'Jost', sans-serif; font-size: 0.9rem; color: var(--text); border-radius: 2px; outline: none; transition: border-color 0.2s; }
-    .form-group input:focus, .form-group textarea:focus { border-color: var(--tan); }
+    .form-group input:focus, .form-group textarea:focus { border-color: var(--rose); }
     .form-group textarea { resize: vertical; min-height: 120px; }
     .btn-submit { background: var(--forest); color: var(--cream); border: none; cursor: pointer; font-family: 'Jost', sans-serif; padding: 14px 36px; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; border-radius: 2px; transition: background 0.2s; align-self: flex-start; }
     .btn-submit:hover { background: var(--forest-dark); }

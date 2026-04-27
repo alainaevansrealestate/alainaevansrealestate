@@ -208,30 +208,7 @@
 </head>
 <body>
 
-  <!-- PASSWORD OVERLAY -->
-  <div id="pw-overlay">
-    <p class="pw-tag">Preview Access Only</p>
-    <h2>Alaina Evans Real Estate</h2>
-    <input type="password" id="pw-input" placeholder="Enter password" autocomplete="off">
-    <p id="pw-error">Incorrect password — please try again</p>
-    <button id="pw-btn" onclick="checkPw()">Enter</button>
-  </div>
-  <script>
-    if (sessionStorage.getItem('ae-auth') === 'yes') {
-      document.getElementById('pw-overlay').style.display = 'none';
-    }
-    document.getElementById('pw-input').addEventListener('keydown', e => { if (e.key === 'Enter') checkPw(); });
-    function checkPw() {
-      if (document.getElementById('pw-input').value === 'LoganE1234!') {
-        sessionStorage.setItem('ae-auth', 'yes');
-        document.getElementById('pw-overlay').style.display = 'none';
-      } else {
-        document.getElementById('pw-error').style.display = 'block';
-        document.getElementById('pw-input').value = '';
-        document.getElementById('pw-input').focus();
-      }
-    }
-  </script>
+
 
   <!-- NAV -->
   <nav>

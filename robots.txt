@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://alainaevansrealestate.com/sitemap.xml

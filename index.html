@@ -140,8 +140,11 @@
 
     /* FOOTER */
     footer { background: #979265; padding: 44px 52px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
-    .footer-instagram { display: flex; align-items: center; gap: 8px; text-decoration: none; font-size: 0.7rem; letter-spacing: 0.15em; color: rgba(245,240,235,0.55); transition: color 0.2s; }
+    .footer-contact { display: flex; flex-direction: column; }
+    .footer-instagram { display: flex; align-items: center; gap: 8px; text-decoration: none; font-size: 0.85rem; letter-spacing: 0.15em; color: rgba(245,240,235,0.55); transition: color 0.2s; }
     .footer-instagram:hover { color: var(--cream); }
+    .footer-email { display: flex; align-items: center; gap: 8px; text-decoration: none; font-size: 0.85rem; letter-spacing: 0.15em; color: rgba(245,240,235,0.55); transition: color 0.2s; margin-top: 8px; }
+    .footer-email:hover { color: var(--cream); }
     .footer-logo img { height: 62px; width: auto; }
     .footer-right p { font-size: 0.7rem; letter-spacing: 0.1em; color: rgba(245,240,235,0.32); text-align: right; line-height: 1.8; }
 
@@ -376,10 +379,16 @@
 
   <footer>
     <div class="footer-logo"><img src="images/logo_white.png" alt="Alaina Evans Real Estate"></div>
-    <a class="footer-instagram" href="https://www.instagram.com/alainaevans_realestate" target="_blank">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
-      @alainaevans_realestate
-    </a>
+    <div class="footer-contact"><div class="footer-contact">
+      <a class="footer-instagram" href="https://www.instagram.com/alainaevans_realestate" target="_blank">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
+        @alainaevans_realestate
+      </a>
+      <a class="footer-email" href="mailto:info@alainaevans.com">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+        info@alainaevans.com
+      </a>
+    </div>
     <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 10px;">
       <img src="images/coldwell-banker-logo.png" alt="Coldwell Banker Community Professionals Brokerage" style="height: 22px; opacity: 0.85;">
       <div class="footer-right">

@@ -133,7 +133,7 @@
 
     /* HOUSE GALLERY */
     .house-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; margin-top: 3px; }
-    .house-gallery img { width: 100%; aspect-ratio: 4/3; object-fit: cover; transition: opacity 0.2s; }
+    .house-gallery img { width: 100%; aspect-ratio: 4/3; object-fit: cover; object-position: center; display: block; transition: opacity 0.2s; }
     .house-gallery img:hover { opacity: 0.9; }
 
     /* CONTACT */
@@ -187,6 +187,7 @@
       .commitment { padding: 72px 24px; }
       .listings { padding: 72px 24px; }
       .house-gallery { grid-template-columns: repeat(2, 1fr); }
+      .house-gallery img { aspect-ratio: 1/1; object-fit: cover; object-position: center; }
       .contact-section { padding: 72px 24px; }
       .contact-grid { grid-template-columns: 1fr; gap: 44px; }
       footer { flex-direction: column; text-align: center; padding: 36px 24px; }

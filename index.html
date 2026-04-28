@@ -133,8 +133,9 @@
 
     /* HOUSE GALLERY */
     .house-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; margin-top: 3px; }
-    .house-gallery img { width: 100%; aspect-ratio: 4/3; object-fit: cover; object-position: center; display: block; transition: opacity 0.2s; }
-    .house-gallery img:hover { opacity: 0.9; }
+    .gallery-cell { position: relative; width: 100%; padding-top: 75%; overflow: hidden; }
+    .gallery-cell img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; transition: opacity 0.2s; }
+    .gallery-cell img:hover { opacity: 0.9; }
 
     /* CONTACT */
     .testimonials { background: var(--warm-white); padding: 100px 52px; }
@@ -187,7 +188,7 @@
       .commitment { padding: 72px 24px; }
       .listings { padding: 72px 24px; }
       .house-gallery { grid-template-columns: repeat(2, 1fr); }
-      .house-gallery img { aspect-ratio: 1/1; object-fit: cover; object-position: center; }
+      .gallery-cell { padding-top: 100%; }
       .contact-section { padding: 72px 24px; }
       .contact-grid { grid-template-columns: 1fr; gap: 44px; }
       footer { flex-direction: column; text-align: center; padding: 36px 24px; }
@@ -305,12 +306,12 @@
         <a href="https://alainaevans.ca/search/#status=active&sold_days=180&pstatus=1%2C11&ls_conversion=acres&location_search_field=Hamilton%2C%20ON&drive_time=09%3A00&drive_duration=15&drive_avoid_ferry=1&drive_departure=1&ss_locale=en-CA&ss_description=Hamilton%2C%20ON%2C%20Canada&ss_email_freq=40&ss_send_zero_result=1&bounds_north=44.140723048379655&bounds_east=-79.41757206010939&bounds_south=42.36858408905536&bounds_west=-80.45303348589064&center_lat=43.2557206&center_lon=-79.8711024&center_lat_pan=43.26110080848182&center_lon_pan=-79.93530277300002&geotype=PopulatedPlace&user_lat=43.2557206&user_lon=-79.8711024&pgsize=20&startidx=0&zoom=9&sort_by=1&company_uuid=18845836&commute=0&buffer_miles=0.25&geospatial=true&agent_uuid=d443a101-c03e-4378-9fe1-c35b796dc121&ptype=1%2C2%2C3%2C4%2C5%2C7%2C9%2C8&searchType=criteria&omit_hidden=true&ex_pend=true&currency=CAD" target="_blank" class="btn btn-tan" style="display:inline-block">Search Hamilton Listings →</a>
       </div>
       <div class="house-gallery" style="margin-top:3px">
-        <img src="images/hamilton-home-living-room.jpg" alt="Hamilton home living room" width="1000" height="667">
-        <img src="images/hamilton-home-kitchen.jpg" alt="Hamilton kitchen" width="1000" height="1500">
-        <img src="images/hamilton-home-interior.jpg" alt="Hamilton home interior" width="1000" height="1500">
-        <img src="images/hamilton-home-dining-room.jpg" alt="Hamilton home dining" width="1000" height="667">
-        <img src="images/hamilton-home-bedroom.jpg" alt="Hamilton home" width="1000" height="667">
-        <img src="images/hamilton-home-fireplace.jpg" alt="Hamilton home fireplace" width="1000" height="667">
+        <div class="gallery-cell"><img src="images/hamilton-home-living-room.jpg" alt="Hamilton home living room"></div>
+        <div class="gallery-cell"><img src="images/hamilton-home-kitchen.jpg" alt="Hamilton kitchen"></div>
+        <div class="gallery-cell"><img src="images/hamilton-home-interior.jpg" alt="Hamilton home interior"></div>
+        <div class="gallery-cell"><img src="images/hamilton-home-dining-room.jpg" alt="Hamilton home dining"></div>
+        <div class="gallery-cell"><img src="images/hamilton-home-bedroom.jpg" alt="Hamilton home"></div>
+        <div class="gallery-cell"><img src="images/hamilton-home-fireplace.jpg" alt="Hamilton home fireplace"></div>
       </div>
     </div>
   </section>
